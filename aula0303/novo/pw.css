@@ -1,0 +1,13 @@
+button {
+   padding: 5px 10px;
+   background: rebeccapurple;
+   color: white;
+   border-radius: 5px;
+   margin: 30px;
+   text-align: center;
+   width: 250px;
+}
+
+h1 {
+    color: aqua;
+}

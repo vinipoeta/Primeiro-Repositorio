@@ -1,0 +1,11 @@
+img {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+}
+#fundo {
+    background: #000;
+	width: 400px;
+	height: 400px;
+	border-radius: 5px;
+}

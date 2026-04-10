@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rebeccapurple;
+    font-family: Arial, sans-serif;
+}
+
+#login-tropa {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    width: 300px;
+}
+
+#login-tropa label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#login-tropa input[type="text"], #login-tropa input[type="email"], #login-tropa input[type="password"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#login-tropa button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: #fff;
+    font-weight: bold;
+}
+
+#login-tropa button:hover {
+    background-color: #0056b3;
+}
+
+#zap {
+    margin-top: 15px;
+}

@@ -1,0 +1,592 @@
+:root {
+  --preto-paysan: #0a0a0a;
+  --preto-fosco: #1a1a1a;
+  --preto-claro: #2c2c2c;
+  --laranja-principal: #e65100;
+  --laranja-escuro: #bf360c;
+  --laranja-medio: #f57c00;
+  --laranja-claro: #ffb74d;
+  --branco-texto: #f5f5f5;
+  --cinza-painel: #333333;
+  --cinza-borda: #404040;
+  --verde-acerto: #2e7d32;
+  --vermelho-erro: #c62828;
+  --sombra-pesada: 0 6px 12px rgba(230, 81, 0, 0.3);
+  --sombra-media: 0 4px 8px rgba(230, 81, 0, 0.2);
+  --sombra-leve: 0 2px 4px rgba(230, 81, 0, 0.1);
+  --borda-padrao: 8px;
+  --borda-card: 4px;
+  --transicao: all 0.2s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--preto-fosco);
+  color: var(--preto-paysan);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  background-image: radial-gradient(circle at 10% 20%, rgba(10, 10, 10, 0.1) 0%, transparent 30%),
+                    radial-gradient(circle at 90% 70%, rgba(10, 10, 10, 0.1) 0%, transparent 30%);
+}
+
+body > * {
+  max-width: 1100px;
+  width: 100%;
+}
+
+header {
+  background-color: var(--laranja-medio);
+  padding: 16px 24px;
+  border-radius: var(--borda-padrao);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--sombra-pesada);
+  margin-bottom: 32px;
+  border-left: 6px solid var(--preto-paysan);
+  border-bottom: 2px solid var(--preto-fosco);
+}
+
+header h1 {
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--preto-paysan);
+  text-shadow: 3px 3px 0 var(--laranja-escuro);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+header h1::before {
+  content: "🦏";
+  font-size: 2rem;
+  filter: drop-shadow(2px 2px 0 var(--laranja-escuro));
+}
+
+.saldo-container {
+  background-color: var(--preto-paysan);
+  padding: 10px 24px;
+  border-radius: 40px;
+  font-weight: 700;
+  font-size: 1.3rem;
+  border: 2px solid var(--laranja-escuro);
+  color: var(--laranja-claro);
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.8);
+}
+
+.saldo-container span {
+  color: var(--laranja-medio);
+  font-weight: 800;
+  margin-left: 6px;
+}
+
+section {
+  margin-bottom: 48px;
+}
+
+section h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-left: 12px;
+  border-left: 6px solid var(--preto-paysan);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--preto-paysan);
+  font-family: 'Arial Black', sans-serif;
+  text-shadow: 1px 1px 0 var(--laranja-claro);
+}
+
+.card-jogo {
+  background-color: var(--laranja-medio);
+  border-radius: var(--borda-card);
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid var(--preto-paysan);
+  box-shadow: var(--sombra-media);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
+
+.card-jogo:hover {
+  border-color: var(--preto-fosco);
+  box-shadow: var(--sombra-pesada);
+  background-color: var(--laranja-claro);
+}
+
+.card-jogo img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: brightness(0.9) drop-shadow(2px 2px 0 var(--preto-paysan));
+  transition: var(--transicao);
+}
+
+.card-jogo:hover img {
+  filter: brightness(1.1) drop-shadow(2px 2px 0 var(--preto-paysan));
+}
+
+.card-jogo h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--preto-paysan);
+  text-align: center;
+  letter-spacing: 0.5px;
+  grid-column: 2;
+  font-family: 'Arial', sans-serif;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--preto-paysan);
+  padding-bottom: 4px;
+  text-shadow: 1px 1px 0 var(--laranja-claro);
+}
+
+.card-jogo button {
+  background-color: var(--preto-paysan);
+  border: 2px solid var(--laranja-escuro);
+  padding: 10px 16px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--laranja-medio);
+  cursor: pointer;
+  transition: var(--transicao);
+  box-shadow: 0 3px 0 var(--laranja-escuro);
+  min-width: 140px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  grid-row: 2;
+}
+
+.card-jogo button:nth-of-type(1) {
+  grid-column: 1;
+}
+
+.card-jogo button:nth-of-type(2) {
+  grid-column: 2;
+}
+
+.card-jogo button:nth-of-type(3) {
+  grid-column: 3;
+}
+
+.card-jogo button:hover {
+  background-color: var(--laranja-escuro);
+  border-color: var(--preto-paysan);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 var(--preto-paysan);
+  color: var(--preto-paysan);
+}
+
+.card-jogo button.selecionado {
+  background-color: var(--preto-fosco);
+  border: 2px solid var(--laranja-claro);
+  box-shadow: 0 3px 0 var(--laranja-escuro);
+  color: var(--laranja-claro);
+}
+
+#area-aposta {
+  background-color: var(--laranja-medio);
+  border-radius: var(--borda-padrao);
+  padding: 28px 32px;
+  border: 2px solid var(--preto-paysan);
+  box-shadow: var(--sombra-pesada);
+  margin-top: 24px;
+}
+
+#area-aposta h2 {
+  border-left-color: var(--preto-paysan);
+  margin-top: 0;
+  font-size: 2rem;
+  color: var(--preto-paysan);
+}
+
+#area-aposta p {
+  font-size: 1.4rem;
+  margin: 20px 0;
+  background-color: var(--laranja-principal);
+  padding: 12px 24px;
+  border-radius: 40px;
+  display: inline-block;
+  border: 1px solid var(--preto-paysan);
+  color: var(--preto-paysan);
+}
+
+#oddSelecionada {
+  color: var(--preto-paysan);
+  font-weight: 800;
+  font-size: 1.8rem;
+  margin-left: 12px;
+}
+
+#area-aposta label {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 20px 0 8px;
+  color: var(--preto-paysan);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#valorAposta {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 1.3rem;
+  background-color: var(--laranja-principal);
+  border: 2px solid var(--preto-paysan);
+  border-radius: 40px;
+  color: var(--preto-paysan);
+  font-weight: 600;
+  transition: var(--transicao);
+  margin-bottom: 24px;
+}
+
+#valorAposta:focus {
+  outline: none;
+  border-color: var(--preto-fosco);
+  background-color: var(--laranja-claro);
+}
+
+#area-aposta button {
+  background-color: var(--preto-paysan);
+  border: none;
+  padding: 16px 32px;
+  border-radius: 40px;
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--laranja-medio);
+  cursor: pointer;
+  transition: var(--transicao);
+  border: 2px solid var(--laranja-escuro);
+  box-shadow: 0 5px 0 var(--preto-fosco);
+  width: 100%;
+  letter-spacing: 2px;
+}
+
+#area-aposta button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 var(--preto-paysan);
+  background-color: var(--preto-fosco);
+  color: var(--laranja-claro);
+}
+
+#loading {
+  text-align: center;
+  background-color: var(--laranja-medio);
+  border-radius: var(--borda-padrao);
+  padding: 40px;
+  border: 2px solid var(--preto-paysan);
+  box-shadow: var(--sombra-pesada);
+}
+
+#loading h2 {
+  font-size: 2rem;
+  color: var(--preto-paysan);
+  border-left: none;
+  text-align: center;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid var(--preto-paysan);
+  border-top: 6px solid var(--laranja-claro);
+  border-radius: 50%;
+  margin: 30px auto;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#resultado {
+  text-align: center;
+  background-color: var(--laranja-medio);
+  border-radius: var(--borda-padrao);
+  padding: 40px;
+  border: 3px solid var(--preto-paysan);
+  box-shadow: var(--sombra-pesada);
+}
+
+#resultado.vitoria {
+  border-color: var(--verde-acerto);
+}
+
+#resultado.derrota {
+  border-color: var(--vermelho-erro);
+}
+
+@keyframes aparece {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#resultado.vitoria,
+#resultado.derrota {
+  animation: aparece 0.3s ease-out;
+}
+
+#mensagemResultado {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--preto-paysan);
+}
+
+#resultado.vitoria #mensagemResultado {
+  color: var(--verde-acerto);
+  text-shadow: 2px 2px 0 var(--laranja-claro);
+}
+
+#resultado.derrota #mensagemResultado {
+  color: var(--vermelho-erro);
+  text-shadow: 2px 2px 0 var(--laranja-claro);
+}
+
+#resultado button {
+  background-color: var(--preto-paysan);
+  border: none;
+  padding: 12px 40px;
+  border-radius: 30px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--laranja-medio);
+  cursor: pointer;
+  border: 2px solid var(--laranja-escuro);
+  transition: var(--transicao);
+  box-shadow: 0 3px 0 var(--preto-fosco);
+}
+
+#resultado button:hover {
+  background-color: var(--preto-fosco);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 var(--preto-paysan);
+  color: var(--laranja-claro);
+}
+
+#historico {
+  background-color: var(--laranja-medio);
+  border-radius: var(--borda-padrao);
+  padding: 24px;
+  border: 1px solid var(--preto-paysan);
+  box-shadow: var(--sombra-media);
+}
+
+#historico h2 {
+  color: var(--preto-paysan);
+}
+
+#listaHistorico {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item-historico {
+  background-color: var(--laranja-principal);
+  padding: 12px 20px;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  align-items: center;
+  font-weight: 500;
+  border-left: 4px solid var(--preto-paysan);
+  transition: var(--transicao);
+  font-size: 0.95rem;
+  color: var(--preto-paysan);
+}
+
+.item-historico:hover {
+  background-color: var(--laranja-claro);
+}
+
+.item-historico .time {
+  color: var(--preto-paysan);
+  font-weight: 600;
+}
+
+.item-historico .odd {
+  color: var(--preto-fosco);
+  font-weight: 600;
+}
+
+.item-historico .valor {
+  color: var(--preto-paysan);
+}
+
+.item-historico .resultado {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+.item-historico .resultado.vitoria {
+  color: var(--verde-acerto);
+}
+
+.item-historico .resultado.derrota {
+  color: var(--vermelho-erro);
+}
+
+@media (max-width: 900px) {
+  .card-jogo {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  
+  .card-jogo img:first-of-type {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: end;
+  }
+  
+  .card-jogo h3 {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    font-size: 1.4rem;
+  }
+  
+  .card-jogo img:last-of-type {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: start;
+  }
+  
+  .card-jogo button {
+    grid-row: 3;
+    padding: 10px;
+    min-width: unset;
+  }
+  
+  .card-jogo button:nth-of-type(1) {
+    grid-column: 1;
+  }
+  
+  .card-jogo button:nth-of-type(2) {
+    grid-column: 1 / -1;
+  }
+  
+  .card-jogo button:nth-of-type(3) {
+    grid-column: 2;
+  }
+  
+  header {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    padding: 16px;
+  }
+  
+  header h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  body { padding: 8px; }
+  
+  header h1 { font-size: 1.8rem; }
+  header h1::before { font-size: 1.6rem; }
+  
+  .saldo-container {
+    font-size: 1.1rem;
+    padding: 8px 16px;
+  }
+  
+  section h2 { font-size: 1.5rem; }
+  
+  .card-jogo {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .card-jogo img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .card-jogo img:first-of-type,
+  .card-jogo img:last-of-type {
+    grid-row: auto;
+    justify-self: center;
+  }
+  
+  .card-jogo h3 {
+    grid-row: 2;
+    font-size: 1.2rem;
+  }
+  
+  .card-jogo button {
+    grid-row: auto;
+    font-size: 1rem;
+    padding: 10px;
+  }
+  
+  .card-jogo button:nth-of-type(1),
+  .card-jogo button:nth-of-type(2),
+  .card-jogo button:nth-of-type(3) {
+    grid-column: 1;
+  }
+  
+  #area-aposta {
+    padding: 20px;
+  }
+  
+  #area-aposta button {
+    font-size: 1.3rem;
+    padding: 14px;
+  }
+  
+  #mensagemResultado { font-size: 2rem; }
+  
+  .item-historico {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    text-align: center;
+  }
+  
+  .item-historico .resultado {
+    text-align: center;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--laranja-principal);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--preto-paysan);
+  border-radius: 0;
+  border: 2px solid var(--laranja-medio);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--preto-fosco);
+}
